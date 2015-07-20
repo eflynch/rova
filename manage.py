@@ -15,7 +15,7 @@ def runserver():
 
 @manager.command
 def cc():
-    filelist = ["main"]
+    filelist = ["main", "login"]
     for fname in filelist:
         call(["browserify", "rova/client/%s.js" % fname,
               "-o", "rova/static/js/%s.js" % fname])
