@@ -3,18 +3,26 @@ from flask.ext.sqlalchemy import SQLAlchemy
 from sqlalchemy.ext.declarative import declarative_base
 from flask.ext.login import LoginManager
 
+# Create server
 app = Flask(__name__)
 
+# Load extension for writing templates in Jade
 app.jinja_env.add_extension('pyjade.ext.jinja.PyJadeExtension')
-app.config.from_object('config')
 
+# Set up database connection
 db = SQLAlchemy(app)
 db.Base = declarative_base()
 
-from rova import views, models, api
+# Import view, and api routes
+from rova import views, api
 
+# Import models
+from rova import models
+
+# Register api
 app.register_blueprint(api.api, url_prefix='/api')
 
+# Set up Login Manager
 login_manager = LoginManager()
 login_manager.init_app(app)
 
