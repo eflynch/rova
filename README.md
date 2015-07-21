@@ -122,7 +122,7 @@ The idea behind having an api which is the interface to all interactions with yo
 When you return an object in your database with the API, do it by writing a `to_dict` function in the model class that returns a python dictionary of fields which you then turn into a json string with the function `jsonify`.
 
 #### Status Codes and Exceptions ####
-One thing that is a pretty important for an API is that it return meaningful status codes. When a server sends a response to an HTTP request it includes one of these (http://httpstat.us/) status codes. If there is an error its 4**, if it's a success it's 2**. The 3** status codes are for directing a browser to do something like redirect (these you usually wouldn't send in a JSON API because a JSON API isn't necessarily talking to a browser). You don't send 5** status codes from your sever on purpose; they indicate that something is seriously wrong with the your server.
+One thing that is a pretty important for an API is that it return meaningful status codes. When a server sends a response to an HTTP request it includes one of these (http://httpstat.us/) status codes. If there is an error its 4.., if it's a success it's 2... The 3.. status codes are for directing a browser to do something like redirect (these you usually wouldn't send in a JSON API because a JSON API isn't necessarily talking to a browser). You don't send 5.. status codes from your sever on purpose; they indicate that something is seriously wrong with the your server.
 
 I setup an exception handler for the api routes which will turn a raised APIException into a 400 response. See `login()` as an example of how that works.
 
